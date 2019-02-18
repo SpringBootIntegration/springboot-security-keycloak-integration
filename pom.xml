@@ -1,0 +1,112 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.edurt.sski</groupId>
+    <artifactId>springboot-security-keycloak-integration</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+
+    <name>springboot security keycloak integration</name>
+    <description>SpringBoot Security KeyCloak Integration is a open source springboot, spring security, keycloak
+        integration example.
+    </description>
+
+    <properties>
+        <!-- dependency config -->
+        <dependency.lombox.version>1.16.16</dependency.lombox.version>
+        <dependency.springboot.common.version>1.5.6.RELEASE</dependency.springboot.common.version>
+        <dependency.keycloak.version>3.1.0.Final</dependency.keycloak.version>
+        <!-- plugin config -->
+        <plugin.maven.compiler.version>3.3</plugin.maven.compiler.version>
+        <plugin.maven.javadoc.version>2.10.4</plugin.maven.javadoc.version>
+        <!-- environment config -->
+        <environment.compile.java.version>1.8</environment.compile.java.version>
+        <!-- reporting config -->
+        <reporting.maven.jxr.version>2.5</reporting.maven.jxr.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${dependency.springboot.common.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${dependency.lombox.version}</version>
+        </dependency>
+        <!-- springboot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- keycloak -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-starter</artifactId>
+            <version>${dependency.keycloak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-security-adapter</artifactId>
+            <version>${dependency.keycloak.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.maven.compiler.version}</version>
+                <configuration>
+                    <source>${environment.compile.java.version}</source>
+                    <target>${environment.compile.java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${plugin.maven.javadoc.version}</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                    <!-- custom tags -->
+                    <tags>
+                        <tag>
+                            <name>Description</name>
+                            <placement>test</placement>
+                            <head>description</head>
+                        </tag>
+                    </tags>
+                    <!-- close jdoclint check document -->
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>${reporting.maven.jxr.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+</project>
