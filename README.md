@@ -25,6 +25,7 @@ SpringBoot Security KeyCloak Integration is a open source springboot, spring sec
 
 - [GitQub](https://gitqub.com/springboot-integration/springboot-security-keycloak-integration.git)
 - [GitHub](https://github.com/SpringBootIntegration/springboot-security-keycloak-integration.git)
+- [Gitee](https://gitee.com/SpringBootIntegratio/springboot-security-keycloak-integration.git)
 
 ### Wiki
 
